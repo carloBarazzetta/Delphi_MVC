@@ -1,4 +1,4 @@
-{******************************************************************************}
+﻿{******************************************************************************}
 {       Calculator MVC: An example of Calculator with MVC Pattern (VCL+FMX)    }
 {       Copyright (c) 2025 (Ethea S.r.l.)                                      }
 {       Author: Carlo Barazzetta                                               }
@@ -15,7 +15,7 @@
 {  See the License for the specific language governing permissions and         }
 {  limitations under the License.                                              }
 {******************************************************************************}
-﻿unit Calculator.MainForm;
+unit Calculator.MainForm;
 
 interface
 
