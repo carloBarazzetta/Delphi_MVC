@@ -1,0 +1,452 @@
+object CalculatorForm: TCalculatorForm
+  Left = 0
+  Top = 0
+  Caption = 'Form12'
+  ClientHeight = 642
+  ClientWidth = 400
+  Constraints.MinHeight = 500.000000000000000000
+  Constraints.MinWidth = 320.000000000000000000
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object TopPanel: TLayout
+    Align = Top
+    Margins.Left = 3.000000000000000000
+    Margins.Top = 3.000000000000000000
+    Margins.Right = 3.000000000000000000
+    Margins.Bottom = 3.000000000000000000
+    Position.X = 3.000000000000000000
+    Position.Y = 3.000000000000000000
+    Size.Width = 394.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object TitleLabel: TLabel
+      Align = Client
+      StyledSettings = [Family, Style, FontColor]
+      Size.Width = 353.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
+      Text = 'Calculator'
+      Left = 44
+      Top = 3
+    end
+    object MenuButton: TButton
+      Align = Left
+      ImageIndex = 0
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 4.000000000000000000
+      Margins.Right = 4.000000000000000000
+      Margins.Bottom = 4.000000000000000000
+      Position.X = 4.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 33.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TextSettings.Trimming = None
+      Left = 4
+      Top = 4
+    end
+  end
+  object DisplayPanel: TLayout
+    Align = Top
+    Margins.Left = 3.000000000000000000
+    Margins.Top = 3.000000000000000000
+    Margins.Right = 3.000000000000000000
+    Margins.Bottom = 3.000000000000000000
+    Position.X = 3.000000000000000000
+    Position.Y = 50.000000000000000000
+    Size.Width = 394.000000000000000000
+    Size.Height = 87.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Top = 41
+    object ExpressionLabel: TLabel
+      Align = Top
+      Size.Width = 394.000000000000000000
+      Size.Height = 15.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Trailing
+      Text = '50 x 2'
+      Left = 3
+      Top = 3
+    end
+    object DisplayLabel: TLabel
+      Align = Client
+      StyledSettings = [Family, FontColor]
+      Size.Width = 394.000000000000000000
+      Size.Height = 72.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 46.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Trailing
+      Text = '123,456'
+      Left = 3
+      Top = 24
+    end
+  end
+  object ButtonsGridLayout: TGridLayout
+    Align = Client
+    ItemHeight = 84.000000000000000000
+    ItemWidth = 100.000000000000000000
+    Orientation = Horizontal
+    Size.Width = 400.000000000000000000
+    Size.Height = 502.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    OnResize = ButtonsGridLayoutResize
+    object ButtonPercent: TButton
+      StyledSettings = [Family, FontColor]
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '%'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonPercentClick
+    end
+    object ButtonCE: TButton
+      StyledSettings = [Family, FontColor]
+      Position.X = 100.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 27
+      Text = 'CE'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonCEClick
+    end
+    object ButtonC: TButton
+      StyledSettings = [Family, FontColor]
+      Position.X = 200.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 26
+      Text = 'C'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonCClick
+    end
+    object ButtonBack: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 25
+      Text = #9003
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonBackClick
+    end
+    object ButtonReciprocal: TButton
+      StyledSettings = [FontColor]
+      Position.Y = 84.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 24
+      Text = #185#8725'x'
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonReciprocalClick
+    end
+    object ButtonSquare: TButton
+      StyledSettings = [FontColor]
+      Position.X = 100.000000000000000000
+      Position.Y = 84.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 23
+      Text = 'x'#178
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonSquareClick
+    end
+    object ButtonSqrt: TButton
+      StyledSettings = [FontColor]
+      Position.X = 200.000000000000000000
+      Position.Y = 84.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 22
+      Text = #8730'x'
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonSqrtClick
+    end
+    object ButtonDivide: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Position.Y = 84.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 21
+      Text = #247
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonDivideClick
+    end
+    object Button7: TButton
+      Tag = 7
+      StyledSettings = [Family, FontColor]
+      Position.Y = 168.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 20
+      Text = '7'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button8: TButton
+      Tag = 8
+      StyledSettings = [Family, FontColor]
+      Position.X = 100.000000000000000000
+      Position.Y = 168.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 19
+      Text = '8'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button9: TButton
+      Tag = 9
+      StyledSettings = [Family, FontColor]
+      Position.X = 200.000000000000000000
+      Position.Y = 168.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 18
+      Text = '9'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object ButtonMultiply: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Position.Y = 168.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 17
+      Text = #215
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonMultiplyClick
+    end
+    object Button4: TButton
+      Tag = 4
+      StyledSettings = [Family, FontColor]
+      Position.Y = 252.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 16
+      Text = '4'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button5: TButton
+      Tag = 5
+      StyledSettings = [Family, FontColor]
+      Position.X = 100.000000000000000000
+      Position.Y = 252.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 15
+      Text = '5'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button6: TButton
+      Tag = 6
+      StyledSettings = [Family, FontColor]
+      Position.X = 200.000000000000000000
+      Position.Y = 252.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 14
+      Text = '6'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object ButtonMinus: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Position.Y = 252.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 13
+      Text = #8722
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonMinusClick
+    end
+    object Button1: TButton
+      Tag = 1
+      StyledSettings = [Family, FontColor]
+      Position.Y = 336.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 12
+      Text = '1'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button2: TButton
+      Tag = 2
+      StyledSettings = [Family, FontColor]
+      Position.X = 100.000000000000000000
+      Position.Y = 336.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 11
+      TabStop = False
+      Text = '2'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object Button3: TButton
+      Tag = 3
+      StyledSettings = [Family, FontColor]
+      Position.X = 200.000000000000000000
+      Position.Y = 336.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 10
+      Text = '3'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object ButtonAdd: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Position.Y = 336.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = '+'
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonAddClick
+    end
+    object ButtonPlusMinus: TButton
+      StyledSettings = [FontColor]
+      Position.Y = 420.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = #177
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonPlusMinusClick
+    end
+    object Button0: TButton
+      StyledSettings = [Family, FontColor]
+      Position.X = 100.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      Text = '0'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = DigitButtonClick
+    end
+    object ButtonDecimal: TButton
+      StyledSettings = [FontColor]
+      Position.X = 200.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = ','
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonDecimalClick
+    end
+    object ButtonEqual: TButton
+      StyledSettings = [FontColor]
+      Position.X = 300.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 84.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = '='
+      TextSettings.Font.Family = 'Segoe UI Symbol'
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
+      OnClick = ButtonEqualClick
+    end
+  end
+end

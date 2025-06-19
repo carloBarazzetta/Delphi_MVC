@@ -1,0 +1,40 @@
+object FMXMainFrm: TFMXMainFrm
+  Left = 0
+  Top = 0
+  Caption = 'FMXMainForm'
+  ClientHeight = 436
+  ClientWidth = 625
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  DesignerMasterStyle = 0
+  object TopLayout: TLayout
+    Align = Top
+    Size.Width = 625.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object ButtonOrders: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Orders'
+      TextSettings.Trimming = None
+      OnClick = OrdersMenuItemClick
+    end
+    object ButtonCustomers: TButton
+      Position.X = 129.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Customers'
+      TextSettings.Trimming = None
+      OnClick = CustomersMenuItemClick
+    end
+  end
+end

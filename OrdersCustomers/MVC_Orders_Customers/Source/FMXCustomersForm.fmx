@@ -1,0 +1,114 @@
+object FMXCustomersFrm: TFMXCustomersFrm
+  Left = 0
+  Top = 0
+  ActiveControl = ButtonDelete
+  Caption = 'Customers List'
+  ClientHeight = 436
+  ClientWidth = 625
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  DesignerMasterStyle = 0
+  object ButtonAdd: TButton
+    Position.X = 26.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Add'
+    TextSettings.Trimming = None
+    OnClick = ButtonAddClick
+  end
+  object ButtonDelete: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 521.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Delete'
+    TextSettings.Trimming = None
+    OnClick = ButtonDeleteClick
+    object ButtonSelect: TButton
+      Anchors = [akTop, akRight]
+      Position.Y = 304.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Select'
+      TextSettings.Trimming = None
+    end
+  end
+  object CustomersListView: TStringGrid
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 24.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 577.000000000000000000
+    Size.Height = 257.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'gridstyle'
+    TabOrder = 3
+    RowHeight = 21.000000000000000000
+    RowCount = 0
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    OnCellDblClick = CustomersListViewCellDblClick
+    Viewport.Width = 573.000000000000000000
+    Viewport.Height = 232.000000000000000000
+    object StringColumn1: TStringColumn
+      Header = 'Id'
+      HeaderSettings.TextSettings.WordWrap = False
+      ReadOnly = True
+    end
+    object StringColumn2: TStringColumn
+      Header = 'Company'
+      HeaderSettings.TextSettings.WordWrap = False
+    end
+    object StringColumn3: TStringColumn
+      Header = 'First name'
+      HeaderSettings.TextSettings.WordWrap = False
+    end
+    object StringColumn4: TStringColumn
+      Header = 'Last name'
+      HeaderSettings.TextSettings.WordWrap = False
+    end
+  end
+  object CompanyNameEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 26.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Company name'
+    Left = 8
+    Top = 35
+    object FirstNameEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 132.000000000000000000
+      Size.Width = 121.000000000000000000
+      Size.Height = 21.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'First name'
+      Left = 8
+      Top = 35
+      object LastNameEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 132.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 21.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Last name'
+        Left = 8
+        Top = 35
+      end
+    end
+  end
+end

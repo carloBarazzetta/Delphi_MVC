@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8CCB0D4D-7FEF-4425-ACBF-561962C9A1B9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Model.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Controller.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCLApp.dproj">
+            <Dependencies>Model.dproj;Controller.dproj</Dependencies>
+        </Projects>
+        <Projects Include="FMXApp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Model">
+        <MSBuild Projects="Model.dproj"/>
+    </Target>
+    <Target Name="Model:Clean">
+        <MSBuild Projects="Model.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Model:Make">
+        <MSBuild Projects="Model.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Controller">
+        <MSBuild Projects="Controller.dproj"/>
+    </Target>
+    <Target Name="Controller:Clean">
+        <MSBuild Projects="Controller.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Controller:Make">
+        <MSBuild Projects="Controller.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLApp" DependsOnTargets="Model;Controller">
+        <MSBuild Projects="VCLApp.dproj"/>
+    </Target>
+    <Target Name="VCLApp:Clean" DependsOnTargets="Model:Clean;Controller:Clean">
+        <MSBuild Projects="VCLApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLApp:Make" DependsOnTargets="Model:Make;Controller:Make">
+        <MSBuild Projects="VCLApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXApp">
+        <MSBuild Projects="FMXApp.dproj"/>
+    </Target>
+    <Target Name="FMXApp:Clean">
+        <MSBuild Projects="FMXApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXApp:Make">
+        <MSBuild Projects="FMXApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Model;Controller;VCLApp;FMXApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Model:Clean;Controller:Clean;VCLApp:Clean;FMXApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Model:Make;Controller:Make;VCLApp:Make;FMXApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,118 @@
+object FMXOrdersFrm: TFMXOrdersFrm
+  Left = 0
+  Top = 0
+  ActiveControl = OrdersListView
+  Caption = 'FMXOrdersForm'
+  ClientHeight = 436
+  ClientWidth = 625
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  DesignerMasterStyle = 0
+  object ButtonAdd: TButton
+    Position.X = 26.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Add'
+    TextSettings.Trimming = None
+    OnClick = ButtonAddClick
+  end
+  object ButtonDelete: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 521.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Delete'
+    TextSettings.Trimming = None
+    OnClick = ButtonDeleteClick
+  end
+  object OrdersListView: TStringGrid
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 24.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 577.000000000000000000
+    Size.Height = 285.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'gridstyle'
+    TabOrder = 5
+    RowHeight = 21.000000000000000000
+    RowCount = 0
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 573.000000000000000000
+    Viewport.Height = 260.000000000000000000
+    object IntegerColumn1: TIntegerColumn
+      Header = 'Id'
+      HeaderSettings.TextSettings.WordWrap = False
+      ReadOnly = True
+    end
+    object StringColumn1: TStringColumn
+      Header = 'Text'
+      HeaderSettings.TextSettings.WordWrap = False
+      ReadOnly = True
+    end
+    object StringColumn2: TStringColumn
+      Header = 'Full Price'
+      HeaderSettings.TextSettings.WordWrap = False
+    end
+    object StringColumn3: TStringColumn
+      Header = 'Discounted Price'
+      HeaderSettings.TextSettings.WordWrap = False
+    end
+  end
+  object OrderTextEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Text = 'Order No. 3'
+    Position.X = 26.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    Left = 8
+    Top = 35
+  end
+  object FullPriceEdit: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Cursor = crIBeam
+    DecimalDigits = 4
+    Max = 999999999.000000000000000000
+    Value = 123456.789000000000000000
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    TextSettings.HorzAlign = Trailing
+    Position.X = 176.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    Left = 135
+    Top = 35
+  end
+  object DiscountPriceEdit: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Cursor = crIBeam
+    DecimalDigits = 4
+    Max = 999999999.000000000000000000
+    Value = 100456.789000000000000000
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    TextSettings.HorzAlign = Trailing
+    Position.X = 281.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    Left = 231
+    Top = 35
+  end
+end
