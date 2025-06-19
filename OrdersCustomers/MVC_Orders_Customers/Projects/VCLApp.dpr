@@ -15,6 +15,7 @@ uses
   VCLFormViewHandler in '..\Source\VCLFormViewHandler.pas',
   VCLMainForm in '..\Source\VCLMainForm.pas' {VCLMainFrm},
   VCLOrdersForm in '..\Source\VCLOrdersForm.pas' {VCLOrdersFrm},
+  VCLCoutriesForm in '..\Source\VCLCoutriesForm.pas' {VCLCountriesFrm},
   VCLOrderForm in '..\Source\VCLOrderForm.pas' {VCLOrderFrm},
   VCLCustomersForm in '..\Source\VCLCustomersForm.pas' {VCLCustomersFrm};
 

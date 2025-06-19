@@ -38,6 +38,7 @@ object VCLMainFrm: TVCLMainFrm
       end
       object CountriesMenuItem: TMenuItem
         Caption = 'Countries'
+        OnClick = CountriesMenuItemClick
       end
     end
   end

@@ -38,6 +38,7 @@ type
     procedure CustomersMenuItemClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
+    procedure CountriesMenuItemClick(Sender: TObject);
   strict private
     FController: TAppController;
     FModel: TModel;
@@ -64,6 +65,11 @@ uses Order
   ;
 
 { TVCLMainFrm }
+
+procedure TVCLMainFrm.CountriesMenuItemClick(Sender: TObject);
+begin
+  CurrentView := FController.CreateCountriesView(Self);
+end;
 
 procedure TVCLMainFrm.CustomersMenuItemClick(Sender: TObject);
 begin

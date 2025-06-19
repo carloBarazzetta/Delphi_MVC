@@ -34,6 +34,9 @@ type
     function CreateCustomersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): ICustomersView;
+    function CreateCountriesView(const AModel: TModel;
+      const AController: TAppController;
+      const AContainer: IContainerView = nil): ICountriesView;
     function CreateOrdersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): IOrdersView;
@@ -55,6 +58,7 @@ uses
   , VCLCustomersForm
   , VCLOrdersForm
   , VCLOrderForm
+  , VCLCoutriesForm
   ;
 
 { VCLFormViewHandler }
@@ -113,6 +117,19 @@ procedure TVCLFormViewHandler.ApplyFilter(const AView: IView;
   const AFilter: IApplyFilter);
 begin
   ;
+end;
+
+function TVCLFormViewHandler.CreateCountriesView(const AModel: TModel;
+  const AController: TAppController;
+  const AContainer: IContainerView): ICountriesView;
+var
+  VCLCountriesFrm: TVCLCountriesFrm;
+begin
+  Application.CreateForm(TVCLCountriesFrm, VCLCountriesFrm);
+  Result := VCLCountriesFrm;
+  Result.SetModelAndController(AModel, AController);
+  if Assigned(AContainer) then
+    AContainer.DisplayEmbeddedView(Result);
 end;
 
 function TVCLFormViewHandler.CreateCustomersView(const AModel: TModel;

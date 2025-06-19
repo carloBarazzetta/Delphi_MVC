@@ -47,11 +47,10 @@ type
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonAddClick(Sender: TObject);
     procedure ButtonSelectClick(Sender: TObject);
-    procedure CustomersListViewDblClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure CustomersListViewCellDblClick(const Column: TColumn;
       const Row: Integer);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   strict private
     FController: TAppController;
     FModel: TModel;
@@ -105,13 +104,6 @@ begin
   var LCustomer := GetCurrentCustomer;
   //Call Orders View filtered By Customer
   FController.CreateOrdersView(nil, LCustomer);
-end;
-
-procedure TFMXCustomersFrm.CustomersListViewDblClick(Sender: TObject);
-begin
-  //var LCustomer := GetCurrentCustomer;
-  //Call Orders View filtered By Customer
-  //FController.
 end;
 
 procedure TFMXCustomersFrm.DisplayCustomers;

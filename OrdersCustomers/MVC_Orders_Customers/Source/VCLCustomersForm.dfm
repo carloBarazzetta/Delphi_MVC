@@ -2,8 +2,8 @@ object VCLCustomersFrm: TVCLCustomersFrm
   Left = 0
   Top = 0
   Caption = 'Customers List'
-  ClientHeight = 346
-  ClientWidth = 560
+  ClientHeight = 522
+  ClientWidth = 606
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,8 +13,8 @@ object VCLCustomersFrm: TVCLCustomersFrm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
-    560
-    346)
+    606
+    522)
   TextHeight = 13
   object ButtonAdd: TButton
     Left = 8
@@ -26,7 +26,7 @@ object VCLCustomersFrm: TVCLCustomersFrm
     OnClick = ButtonAddClick
   end
   object ButtonDelete: TButton
-    Left = 477
+    Left = 523
     Top = 73
     Width = 75
     Height = 25
@@ -34,12 +34,13 @@ object VCLCustomersFrm: TVCLCustomersFrm
     Caption = '&Delete'
     TabOrder = 4
     OnClick = ButtonDeleteClick
+    ExplicitLeft = 477
   end
   object CustomersListView: TListView
     Left = 8
     Top = 104
-    Width = 544
-    Height = 209
+    Width = 590
+    Height = 129
     Anchors = [akLeft, akTop, akRight, akBottom]
     Columns = <
       item
@@ -91,13 +92,24 @@ object VCLCustomersFrm: TVCLCustomersFrm
     Text = 'Barazzetta'
   end
   object ButtonSelect: TButton
-    Left = 477
-    Top = 319
+    Left = 523
+    Top = 495
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = '&Select'
     TabOrder = 6
     OnClick = ButtonSelectClick
+    ExplicitLeft = 477
+    ExplicitTop = 319
+  end
+  object OrdersPanel: TPanel
+    Left = 8
+    Top = 239
+    Width = 590
+    Height = 235
+    Anchors = [akLeft, akRight, akBottom]
+    BevelOuter = bvLowered
+    TabOrder = 7
   end
 end

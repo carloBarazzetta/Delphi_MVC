@@ -35,7 +35,7 @@ object VCLOrdersFrm: TVCLOrdersFrm
   end
   object CustomersListView: TDBGrid
     Left = 8
-    Top = 104
+    Top = 102
     Width = 459
     Height = 236
     Anchors = [akLeft, akTop, akRight, akBottom]
@@ -83,7 +83,7 @@ object VCLOrdersFrm: TVCLOrdersFrm
     Command.Strings = (
       'SELECT * FROM TOrder')
     ObjectClassName = 'TOrder'
-    Left = 272
+    Left = 256
     Top = 176
   end
   object OrdersSource: TDataSource

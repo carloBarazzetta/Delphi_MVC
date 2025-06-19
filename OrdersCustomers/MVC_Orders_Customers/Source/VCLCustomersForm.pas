@@ -28,10 +28,10 @@ uses
   , AppController
   , Model
   , Customers
-  , Customer;
+  , Customer, Vcl.ExtCtrls;
 
 type
-  TVCLCustomersFrm = class(TForm, IInterface, ICustomersView)
+  TVCLCustomersFrm = class(TForm, IInterface, ICustomersView, IContainerView)
     ButtonAdd: TButton;
     ButtonDelete: TButton;
     CustomersListView: TListView;
@@ -39,6 +39,7 @@ type
     FirstNameEdit: TEdit;
     LastNameEdit: TEdit;
     ButtonSelect: TButton;
+    OrdersPanel: TPanel;
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonAddClick(Sender: TObject);
     procedure ButtonSelectClick(Sender: TObject);
@@ -54,7 +55,10 @@ type
     procedure RefreshView;
     //ICustomerView Interface
     procedure DisplayCustomers;
+    //IContainerView Interface
+    procedure DisplayEmbeddedView(const AView: IView);
   private
+    FOrdersView: IView;
     function GetCurrentCustomer: TCustomer;
   end;
 
@@ -95,13 +99,29 @@ procedure TVCLCustomersFrm.CustomersListViewDblClick(Sender: TObject);
 begin
   var LCustomer := GetCurrentCustomer;
   //Call Orders View filtered By Customer
-  FController.CreateOrdersView(nil, LCustomer);
+  FController.CreateOrdersView(Self, LCustomer);
 end;
 
 procedure TVCLCustomersFrm.DisplayCustomers;
 begin
   Show;
   RefreshView;
+end;
+
+procedure TVCLCustomersFrm.DisplayEmbeddedView(const AView: IView);
+begin
+  if Assigned(FOrdersView) then
+  begin
+    (FOrdersView as TForm).Free;
+    FOrdersView := nil;
+  end;
+  var LForm := AView as TForm;
+  LForm.Parent := OrdersPanel;
+  LForm.Align := alClient;
+  LForm.BorderIcons := [];
+  LForm.BorderStyle := bsNone;
+  LForm.Show;
+  FOrdersView := AView;
 end;
 
 procedure TVCLCustomersFrm.FormCreate(Sender: TObject);
@@ -155,6 +175,10 @@ begin
   finally
     CustomersListView.Items.EndUpdate;
   end;
+
+  if Assigned(FOrdersView) then
+    FOrdersView.RefreshView;
+
 end;
 
 end.

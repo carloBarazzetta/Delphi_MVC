@@ -103,8 +103,8 @@
         <DCCReference Include="..\Source\VCLMainForm.pas">
             <Form>VCLMainFrm</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\VCLOrdersForm.pas">
-            <Form>VCLOrdersFrm</Form>
+        <DCCReference Include="..\Source\VCLCoutriesForm.pas">
+            <Form>VCLCountriesFrm</Form>
         </DCCReference>
         <DCCReference Include="..\Source\VCLOrderForm.pas">
             <Form>VCLOrderFrm</Form>
@@ -132,8 +132,7 @@
                 <Source>
                     <Source Name="MainSource">VCLApp.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                </Excluded_Packages>
+                <Excluded_Packages/>
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Android">False</Platform>

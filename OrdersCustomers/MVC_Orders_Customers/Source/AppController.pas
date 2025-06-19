@@ -45,7 +45,11 @@ type
   ICustomersView = interface(IView)
     ['{29B6A84D-164E-4233-BC51-7BE2573E09B5}']
     procedure DisplayCustomers;
-    //procedure DisplayCustomer(const ACustomer: TCustomer);
+  end;
+
+  ICountriesView = interface(IView)
+    ['{5DC90B44-2CDF-405D-A55A-CAD5C851F3E2}']
+    procedure DisplayCountries;
   end;
 
   IOrdersView = interface(IView)
@@ -70,6 +74,9 @@ type
     function CreateCustomersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): ICustomersView;
+    function CreateCountriesView(const AModel: TModel;
+      const AController: TAppController;
+      const AContainer: IContainerView = nil): ICountriesView;
     function CreateOrdersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): IOrdersView;
@@ -91,20 +98,31 @@ type
     constructor Create(const AModel: TModel);
     function AppTitle: string;
     procedure StartApp(viewHandler: IViewHandler; Model: TModel);
+
     procedure AddOrder(Order: TOrder);
     procedure SaveOrder(const Order: TOrder);
     procedure DeleteOrder(const AId: Integer);
     function RetrieveOrder(const AId: Integer;
       const ARaiseError: Boolean = False): TOrder;
-    procedure AddCustomer(Customer: TCustomer);
-    procedure DeleteCustomer(const AId: Integer);
-    function RetrieveCustomer(const AId: Integer;
-      const ARaiseError: Boolean = False): TCustomer;
-    function CreateCustomersView(const AContainer: IContainerView = nil): ICustomersView;
+
     function CreateOrdersView(const AContainer: IContainerView = nil;
       const ACustomer: TCustomer = nil): IOrdersView;
     function CreateOrderView(const AOrder: TOrder;
       const ACustomer: TCustomer = nil): IOrderView;
+
+    procedure AddCustomer(Customer: TCustomer);
+    procedure DeleteCustomer(const AId: Integer);
+    function RetrieveCustomer(const AId: Integer;
+      const ARaiseError: Boolean = False): TCustomer;
+
+    function CreateCustomersView(
+      const AContainer: IContainerView = nil): ICustomersView;
+
+    function RetrieveCountry(const AIsoCode: string;
+      const ARaiseError: Boolean = False): TCountry;
+
+    function CreateCountriesView(
+      const AContainer: IContainerView = nil): ICountriesView;
   end;
 
 implementation
@@ -114,6 +132,14 @@ uses
   ;
 
 { TAppController }
+
+function TAppController.CreateCountriesView(
+  const AContainer: IContainerView): ICountriesView;
+begin
+  Result := FViewHandler.CreateCountriesView(
+    FModel, Self, AContainer);
+  Result.DisplayCountries;
+end;
 
 function TAppController.CreateCustomersView(
   const AContainer: IContainerView = nil): ICustomersView;
@@ -204,6 +230,14 @@ begin
     FModel.Customers.DeleteCustomer(LCustomer);
   end;
   FViewHandler.RefreshCurrentView;
+end;
+
+function TAppController.RetrieveCountry(const AIsoCode: string;
+  const ARaiseError: Boolean): TCountry;
+begin
+  Result := FModel.Countries.FindCountry(AIsoCode);
+  if not Assigned(Result) and ARaiseError then
+    raise Exception.Create(Format('Error: Country Id: %s not Found!',[AIsoCode]));
 end;
 
 function TAppController.RetrieveCustomer(const AId: Integer;

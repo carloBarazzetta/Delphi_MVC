@@ -78,6 +78,7 @@ object CalculatorForm: TCalculatorForm
       Align = alTop
       Alignment = taRightJustify
       Caption = '50 x 2'
+      ExplicitLeft = 4
     end
     object DisplayLabel: TLabel
       AlignWithMargins = True
@@ -94,6 +95,9 @@ object CalculatorForm: TCalculatorForm
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 147
+      ExplicitWidth = 162
+      ExplicitHeight = 59
     end
   end
   object ButtonsGridPanel: TGridPanel

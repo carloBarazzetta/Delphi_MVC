@@ -165,7 +165,7 @@ begin
     UpdateDisplayLabel(E.Message)
   else
     UpdateDisplayLabel(UNEXPECTED_ERROR);
-  FController.ExecuteOperation(coClearEntry);
+//  FController.ExecuteOperation(coClearEntry);
 end;
 
 procedure TCalculatorForm.ClearAllActionExecute(Sender: TObject);
