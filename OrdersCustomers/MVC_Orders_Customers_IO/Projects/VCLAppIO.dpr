@@ -43,9 +43,6 @@ var
   Controller: TAppController;
 
 begin
-{$IFDEF DEBUG}
-  System.ReportMemoryLeaksOnShutdown := True;
-{$ENDIF}
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
 
@@ -64,6 +61,6 @@ begin
   end;
 
   {$IFDEF DEBUG}
-  ReportMemoryLeaksOnShutdown := True;
+  //ReportMemoryLeaksOnShutdown := True;
   {$ENDIF}
 end.

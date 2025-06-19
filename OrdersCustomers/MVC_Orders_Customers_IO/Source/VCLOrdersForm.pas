@@ -117,6 +117,7 @@ var
   LOrders: TList<TOrder>;
   LOrder: TOrder;
 begin
+  OrdersSelector.Close;
   LOrders := FModel.Orders.GetAllOrders(FCurrentCustomer);
   OrdersSelector.DisableControls;
   try

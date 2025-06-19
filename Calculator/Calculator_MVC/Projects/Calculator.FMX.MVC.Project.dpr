@@ -15,7 +15,7 @@
 {  See the License for the specific language governing permissions and         }
 {  limitations under the License.                                              }
 {******************************************************************************}
-unit Calculator.Resources;
+program Calculator.FMX.MVC.Project;
 
 uses
   System.StartUpCopy,
