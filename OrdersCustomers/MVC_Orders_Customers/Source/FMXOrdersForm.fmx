@@ -46,17 +46,20 @@ object FMXOrdersFrm: TFMXOrdersFrm
     RowHeight = 21.000000000000000000
     RowCount = 0
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    OnCellDblClick = OrdersListViewCellDblClick
     Viewport.Width = 573.000000000000000000
     Viewport.Height = 260.000000000000000000
     object IntegerColumn1: TIntegerColumn
       Header = 'Id'
       HeaderSettings.TextSettings.WordWrap = False
       ReadOnly = True
+      Size.Width = 40.000000000000000000
     end
     object StringColumn1: TStringColumn
       Header = 'Text'
       HeaderSettings.TextSettings.WordWrap = False
       ReadOnly = True
+      Size.Width = 150.000000000000000000
     end
     object StringColumn2: TStringColumn
       Header = 'Full Price'
@@ -65,6 +68,11 @@ object FMXOrdersFrm: TFMXOrdersFrm
     object StringColumn3: TStringColumn
       Header = 'Discounted Price'
       HeaderSettings.TextSettings.WordWrap = False
+    end
+    object StringColumn4: TStringColumn
+      Header = 'Customer'
+      HeaderSettings.TextSettings.WordWrap = False
+      Size.Width = 150.000000000000000000
     end
   end
   object OrderTextEdit: TEdit
