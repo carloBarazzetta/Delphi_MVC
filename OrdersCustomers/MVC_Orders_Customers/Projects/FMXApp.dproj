@@ -111,8 +111,8 @@
         <DCCReference Include="..\Source\FMXMainForm.pas">
             <Form>FMXMainFrm</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\FMXOrdersForm.pas">
-            <Form>FMXOrdersFrm</Form>
+        <DCCReference Include="..\Source\FMXCountriesForm.pas">
+            <Form>FMXCountriesFrm</Form>
         </DCCReference>
         <DCCReference Include="..\Source\FMXOrderForm.pas">
             <Form>FMXOrderFrm</Form>
@@ -140,8 +140,7 @@
                 <Source>
                     <Source Name="MainSource">FMXApp.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                </Excluded_Packages>
+                <Excluded_Packages/>
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Android">False</Platform>

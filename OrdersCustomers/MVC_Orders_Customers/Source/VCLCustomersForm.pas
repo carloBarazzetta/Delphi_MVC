@@ -32,14 +32,14 @@ uses
 
 type
   TVCLCustomersFrm = class(TForm, IInterface, ICustomersView, IContainerView)
+    CustomersListView: TListView;
+    OrdersPanel: TPanel;
+    Panel1: TPanel;
     ButtonAdd: TButton;
     ButtonDelete: TButton;
-    CustomersListView: TListView;
     CompanyNameEdit: TEdit;
     FirstNameEdit: TEdit;
     LastNameEdit: TEdit;
-    ButtonSelect: TButton;
-    OrdersPanel: TPanel;
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonAddClick(Sender: TObject);
     procedure ButtonSelectClick(Sender: TObject);

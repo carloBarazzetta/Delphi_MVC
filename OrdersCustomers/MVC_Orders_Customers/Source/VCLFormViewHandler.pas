@@ -58,7 +58,7 @@ uses
   , VCLCustomersForm
   , VCLOrdersForm
   , VCLOrderForm
-  , VCLCoutriesForm
+  , VCLCountriesForm
   ;
 
 { VCLFormViewHandler }

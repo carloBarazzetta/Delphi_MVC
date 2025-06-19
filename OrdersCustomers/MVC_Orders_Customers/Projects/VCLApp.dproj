@@ -103,7 +103,10 @@
         <DCCReference Include="..\Source\VCLMainForm.pas">
             <Form>VCLMainFrm</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\VCLCoutriesForm.pas">
+        <DCCReference Include="..\Source\VCLOrdersForm.pas">
+            <Form>VCLOrdersFrm</Form>
+        </DCCReference>
+        <DCCReference Include="..\Source\VCLCountriesForm.pas">
             <Form>VCLCountriesFrm</Form>
         </DCCReference>
         <DCCReference Include="..\Source\VCLOrderForm.pas">

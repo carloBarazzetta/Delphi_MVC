@@ -34,6 +34,9 @@ type
     function CreateCustomersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): ICustomersView;
+    function CreateCountriesView(const AModel: TModel;
+      const AController: TAppController;
+      const AContainer: IContainerView = nil): ICountriesView;
     function CreateOrdersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): IOrdersView;
@@ -53,6 +56,7 @@ uses
   , FMXCustomersForm
   , FMXOrdersForm
   , FMXOrderForm
+  , FMXCountriesForm
   , Fmx.DialogService
   , System.UITypes
   , System.SysUtils
@@ -123,6 +127,19 @@ var
 begin
   FMXCustomersFrm := TFMXCustomersFrm.Create(Application);
   Result := FMXCustomersFrm;
+  Result.SetModelAndController(AModel, AController);
+  if Assigned(AContainer) then
+    AContainer.DisplayEmbeddedView(Result);
+end;
+
+function TFMXFormViewHandler.CreateCountriesView(const AModel: TModel;
+  const AController: TAppController;
+  const AContainer: IContainerView = nil): ICountriesView;
+var
+  FMXCountriesFrm: TFMXCountriesFrm;
+begin
+  FMXCountriesFrm := TFMXCountriesFrm.Create(Application);
+  Result := FMXCountriesFrm;
   Result.SetModelAndController(AModel, AController);
   if Assigned(AContainer) then
     AContainer.DisplayEmbeddedView(Result);

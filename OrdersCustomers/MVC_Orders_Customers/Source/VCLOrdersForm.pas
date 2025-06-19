@@ -28,16 +28,17 @@ uses
   , AppController
   , Model
   , Orders, Order
-  , Customers, Customer;
+  , Customers, Customer, Vcl.ExtCtrls;
 
 type
   TVCLOrdersFrm = class(TForm, IInterface, IOrdersView)
-    ButtonAdd: TButton;
-    ButtonDelete: TButton;
     OrdersListView: TListView;
-    OrderTextEdit: TEdit;
-    FullPriceEdit: TNumberBox;
+    DataPanel: TPanel;
+    ButtonDelete: TButton;
     DiscountPriceEdit: TNumberBox;
+    FullPriceEdit: TNumberBox;
+    OrderTextEdit: TEdit;
+    ButtonAdd: TButton;
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonAddClick(Sender: TObject);
     procedure OrdersListViewDblClick(Sender: TObject);

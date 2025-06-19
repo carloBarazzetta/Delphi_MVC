@@ -3,7 +3,7 @@ object VCLCustomersFrm: TVCLCustomersFrm
   Top = 0
   Caption = 'Customers List'
   ClientHeight = 522
-  ClientWidth = 606
+  ClientWidth = 576
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,36 +12,14 @@ object VCLCustomersFrm: TVCLCustomersFrm
   Font.Style = []
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  DesignSize = (
-    606
-    522)
   TextHeight = 13
-  object ButtonAdd: TButton
-    Left = 8
-    Top = 73
-    Width = 75
-    Height = 25
-    Caption = '&Add'
-    TabOrder = 3
-    OnClick = ButtonAddClick
-  end
-  object ButtonDelete: TButton
-    Left = 523
-    Top = 73
-    Width = 75
-    Height = 25
-    Anchors = [akTop, akRight]
-    Caption = '&Delete'
-    TabOrder = 4
-    OnClick = ButtonDeleteClick
-    ExplicitLeft = 477
-  end
   object CustomersListView: TListView
-    Left = 8
-    Top = 104
-    Width = 590
-    Height = 129
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    AlignWithMargins = True
+    Left = 3
+    Top = 3
+    Width = 570
+    Height = 281
+    Align = alClient
     Columns = <
       item
         Caption = 'Id'
@@ -63,53 +41,85 @@ object VCLCustomersFrm: TVCLCustomersFrm
         Width = 100
       end>
     RowSelect = True
-    TabOrder = 5
+    TabOrder = 0
     ViewStyle = vsReport
     OnDblClick = CustomersListViewDblClick
-  end
-  object CompanyNameEdit: TEdit
-    Left = 8
-    Top = 35
-    Width = 121
-    Height = 21
-    TabOrder = 0
-    Text = 'Ethea S.r.l.'
-  end
-  object FirstNameEdit: TEdit
-    Left = 135
-    Top = 35
-    Width = 121
-    Height = 21
-    TabOrder = 1
-    Text = 'Carlo'
-  end
-  object LastNameEdit: TEdit
-    Left = 262
-    Top = 35
-    Width = 121
-    Height = 21
-    TabOrder = 2
-    Text = 'Barazzetta'
-  end
-  object ButtonSelect: TButton
-    Left = 523
-    Top = 495
-    Width = 75
-    Height = 25
-    Anchors = [akRight, akBottom]
-    Caption = '&Select'
-    TabOrder = 6
-    OnClick = ButtonSelectClick
-    ExplicitLeft = 477
-    ExplicitTop = 319
+    ExplicitLeft = 0
+    ExplicitTop = 0
+    ExplicitWidth = 606
+    ExplicitHeight = 153
   end
   object OrdersPanel: TPanel
-    Left = 8
-    Top = 239
-    Width = 590
-    Height = 235
-    Anchors = [akLeft, akRight, akBottom]
+    AlignWithMargins = True
+    Left = 3
+    Top = 336
+    Width = 570
+    Height = 183
+    Align = alBottom
     BevelOuter = bvLowered
-    TabOrder = 7
+    TabOrder = 1
+    ExplicitWidth = 600
+  end
+  object Panel1: TPanel
+    AlignWithMargins = True
+    Left = 3
+    Top = 290
+    Width = 570
+    Height = 40
+    Align = alBottom
+    BevelOuter = bvLowered
+    TabOrder = 2
+    ExplicitLeft = -3
+    ExplicitTop = 296
+    ExplicitWidth = 576
+    DesignSize = (
+      570
+      40)
+    object ButtonAdd: TButton
+      Left = 406
+      Top = 6
+      Width = 75
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&Add'
+      TabOrder = 3
+      OnClick = ButtonAddClick
+      ExplicitLeft = 442
+    end
+    object ButtonDelete: TButton
+      Left = 487
+      Top = 6
+      Width = 75
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&Delete'
+      TabOrder = 4
+      OnClick = ButtonDeleteClick
+      ExplicitLeft = 523
+    end
+    object CompanyNameEdit: TEdit
+      Left = 8
+      Top = 10
+      Width = 121
+      Height = 21
+      TabOrder = 0
+      Text = 'Ethea S.r.l.'
+    end
+    object FirstNameEdit: TEdit
+      Left = 135
+      Top = 10
+      Width = 121
+      Height = 21
+      TabOrder = 1
+      Text = 'Carlo'
+    end
+    object LastNameEdit: TEdit
+      Left = 262
+      Top = 10
+      Width = 121
+      Height = 21
+      TabOrder = 2
+      Text = 'Barazzetta'
+    end
   end
 end

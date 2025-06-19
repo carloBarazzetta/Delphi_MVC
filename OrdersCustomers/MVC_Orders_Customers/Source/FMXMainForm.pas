@@ -31,8 +31,10 @@ type
     TopLayout: TLayout;
     ButtonOrders: TButton;
     ButtonCustomers: TButton;
+    ButtonCountries: TButton;
     procedure OrdersMenuItemClick(Sender: TObject);
     procedure CustomersMenuItemClick(Sender: TObject);
+    procedure CountriesMenuItemClick(Sender: TObject);
   strict private
     FController: TAppController;
     FModel: TModel;
@@ -59,6 +61,11 @@ uses Order
   ;
 
 { TFMXMainFrm }
+
+procedure TFMXMainFrm.CountriesMenuItemClick(Sender: TObject);
+begin
+  CurrentView := FController.CreateCountriesView(nil);
+end;
 
 procedure TFMXMainFrm.CustomersMenuItemClick(Sender: TObject);
 begin

@@ -15,6 +15,7 @@ uses
   FMXFormViewHandler in '..\Source\FMXFormViewHandler.pas',
   FMXMainForm in '..\Source\FMXMainForm.pas' {FMXMainFrm},
   FMXOrdersForm in '..\Source\FMXOrdersForm.pas' {FMXOrdersFrm},
+  FMXCountriesForm in '..\Source\FMXCountriesForm.pas' {FMXCountriesFrm},
   FMXOrderForm in '..\Source\FMXOrderForm.pas' {FMXOrderFrm},
   FMXCustomersForm in '..\Source\FMXCustomersForm.pas' {FMXCustomersFrm};
 

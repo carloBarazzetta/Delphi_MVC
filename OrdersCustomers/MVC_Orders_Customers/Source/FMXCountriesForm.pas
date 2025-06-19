@@ -15,23 +15,25 @@
 {  See the License for the specific language governing permissions and         }
 {  limitations under the License.                                              }
 {******************************************************************************}
-unit VCLCoutriesForm;
+unit FMXCountriesForm;
 
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls,
-  Vcl.ComCtrls, Vcl.NumberBox
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, 
+  FMX.Layouts, FMX.TreeView, FMX.Grid, System.Rtti, FMX.Grid.Style,
+  FMX.ScrollBox, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.EditBox, FMX.NumberBox
   , System.Generics.Collections
   , AppController
   , Model
   , Countries, Country;
 
 type
-  TVCLCountriesFrm = class(TForm, IInterface, ICountriesView)
-    CountriesListView: TListView;
+  TFMXCountriesFrm = class(TForm, IInterface, ICountriesView)
+    CountriesListView: TStringGrid;
+    StringColumn1: TStringColumn;
+    StringColumn2: TStringColumn;
   strict private
     FController: TAppController;
     FModel: TModel;
@@ -48,42 +50,37 @@ type
 
 implementation
 
-{$R *.dfm}
+{$R *.fmx}
 
-{ TVCLCountriesFrm }
+{ TFMXCountriesFrm }
 
-procedure TVCLCountriesFrm.DisplayCountries;
+procedure TFMXCountriesFrm.DisplayCountries;
 begin
   Show;
   RefreshView;
 end;
 
-procedure TVCLCountriesFrm.SetModelAndController(const AModel: TModel;
+procedure TFMXCountriesFrm.SetModelAndController(const AModel: TModel;
   const AController: TAppController);
 begin
   FModel := AModel;
   FController := AController;
 end;
 
-procedure TVCLCountriesFrm.RefreshCountriesList;
+procedure TFMXCountriesFrm.RefreshCountriesList;
 begin
   var LCountries := FModel.Countries.GetAllCountries;
-  CountriesListView.Items.BeginUpdate;
-  try
-    CountriesListView.Clear;
-
-    for var LCountry in LCountries do
-      with CountriesListView.Items.Add do
-      begin
-        Caption := LCountry.IsoCode;
-        SubItems.Add(LCountry.Name);
-      end;
-  finally
-    CountriesListView.Items.EndUpdate;
+  CountriesListView.RowCount := LCountries.Count;
+  var I := 0;
+  for var LCountry in LCountries do
+  begin
+    CountriesListView.Cells[0, I] := LCountry.IsoCode;
+    CountriesListView.Cells[1, I] := LCountry.Name;
+    Inc(I);
   end;
 end;
 
-procedure TVCLCountriesFrm.RefreshView;
+procedure TFMXCountriesFrm.RefreshView;
 begin
   RefreshCountriesList;
 end;

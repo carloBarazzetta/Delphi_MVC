@@ -1,0 +1,39 @@
+object FMXCountriesFrm: TFMXCountriesFrm
+  Left = 0
+  Top = 0
+  ActiveControl = CountriesListView
+  Caption = 'FMXOrdersForm'
+  ClientHeight = 436
+  ClientWidth = 376
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  DesignerMasterStyle = 0
+  object CountriesListView: TStringGrid
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 24.000000000000000000
+    Position.Y = 15.000000000000000000
+    Size.Width = 328.000000000000000000
+    Size.Height = 405.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'gridstyle'
+    TabOrder = 0
+    RowHeight = 21.000000000000000000
+    RowCount = 0
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 324.000000000000000000
+    Viewport.Height = 380.000000000000000000
+    object StringColumn1: TStringColumn
+      Header = 'Iso Code'
+      HeaderSettings.TextSettings.WordWrap = False
+      ReadOnly = True
+    end
+    object StringColumn2: TStringColumn
+      Header = 'Name'
+      HeaderSettings.TextSettings.WordWrap = False
+      Size.Width = 200.000000000000000000
+    end
+  end
+end

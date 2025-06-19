@@ -20,7 +20,7 @@ object FMXMainFrm: TFMXMainFrm
       Size.Width = 113.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 2
       Text = 'Orders'
       TextSettings.Trimming = None
       OnClick = OrdersMenuItemClick
@@ -31,10 +31,21 @@ object FMXMainFrm: TFMXMainFrm
       Size.Width = 113.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
+      TabOrder = 1
       Text = 'Customers'
       TextSettings.Trimming = None
       OnClick = CustomersMenuItemClick
+    end
+    object ButtonCountries: TButton
+      Position.X = 255.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Countries'
+      TextSettings.Trimming = None
+      OnClick = CountriesMenuItemClick
     end
   end
 end
