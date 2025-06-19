@@ -54,11 +54,15 @@ object VCLOrdersFrm: TVCLOrdersFrm
       item
         Caption = 'Discounted Price'
         Width = 100
+      end
+      item
+        Caption = 'Customer'
+        Width = 100
       end>
-    Items.ItemData = {050000000000000000}
     RowSelect = True
     TabOrder = 5
     ViewStyle = vsReport
+    OnDblClick = OrdersListViewDblClick
   end
   object OrderTextEdit: TEdit
     Left = 8

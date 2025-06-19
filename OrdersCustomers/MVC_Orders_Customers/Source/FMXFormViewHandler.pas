@@ -22,6 +22,7 @@ interface
 uses
   AppController
   , Model
+  , Order
   , Customer
   ;
 
@@ -36,6 +37,9 @@ type
     function CreateOrdersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): IOrdersView;
+    function CreateOrderView(const AModel: TModel;
+      const AController: TAppController;
+      const AOrder: TOrder; const ACustomer: TCustomer = nil): IOrderView;
     procedure ApplyFilter(const AView: IView; const AFilter: IApplyFilter);
     procedure RefreshCurrentView;
     function YesNo(const AQuestion: string): Boolean;
@@ -48,6 +52,7 @@ uses
   , FMXMainForm 
   , FMXCustomersForm
   , FMXOrdersForm
+  , FMXOrderForm
   , Fmx.DialogService
   , System.UITypes
   , System.SysUtils
@@ -77,7 +82,19 @@ begin
   if Assigned(AContainer) then
     AContainer.DisplayEmbeddedView(Result);
 end;
-    
+
+function TFMXFormViewHandler.CreateOrderView(const AModel: TModel;
+  const AController: TAppController;
+  const AOrder: TOrder; const ACustomer: TCustomer = nil): IOrderView;
+var
+  FMXOrderFrm: TFMXOrderFrm;
+begin
+  FMXOrderFrm := TFMXOrderFrm.Create(Application);
+  Result := FMXOrderFrm;
+  Result.SetModelAndController(AModel, AController);
+  Result.DisplayOrder(AOrder, ACustomer);
+end;
+
 procedure TFMXFormViewHandler.RefreshCurrentView;
 var
   LContainerView: IContainerView;

@@ -36,6 +36,7 @@ type
     procedure SetText(const Value: string);
     procedure SetCustomer(const Value: TCustomer);
   public
+    procedure Assign(ASource: TOrder);
     constructor Create;
     property Id: Integer read FId;
     property Text: string read FText write SetText;
@@ -47,6 +48,15 @@ type
 implementation
 
 { TOrder }
+
+procedure TOrder.Assign(ASource: TOrder);
+begin
+  FId := ASource.Id;
+  Text := ASource.Text;
+  FullPrice := ASource.FullPrice;
+  DiscountedPrice := ASource.DiscountedPrice;
+  Customer := ASource.Customer;
+end;
 
 constructor TOrder.Create;
 begin

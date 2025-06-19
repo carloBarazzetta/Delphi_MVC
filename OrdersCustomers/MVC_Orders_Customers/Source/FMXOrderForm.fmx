@@ -1,0 +1,99 @@
+object FMXOrderFrm: TFMXOrderFrm
+  Left = 0
+  Top = 0
+  ActiveControl = ButtonCancel
+  Caption = 'FMXOrdersForm'
+  ClientHeight = 206
+  ClientWidth = 317
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object ButtonSave: TButton
+    Anchors = [akRight, akBottom]
+    Default = True
+    Position.X = 136.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Save'
+    TextSettings.Trimming = None
+    OnClick = ButtonSaveClick
+  end
+  object ButtonCancel: TButton
+    Anchors = [akRight, akBottom]
+    Cancel = True
+    Position.X = 224.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Cancel'
+    TextSettings.Trimming = None
+    OnClick = ButtonCancelClick
+  end
+  object OrderTextEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 26.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 255.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Order Text'
+    Left = 8
+    Top = 35
+  end
+  object FullPriceEdit: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Cursor = crIBeam
+    DecimalDigits = 4
+    Max = 999999999.000000000000000000
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    TextSettings.HorzAlign = Trailing
+    Position.X = 26.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    Left = 135
+    Top = 35
+  end
+  object DiscountPriceEdit: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Cursor = crIBeam
+    DecimalDigits = 4
+    Max = 999999999.000000000000000000
+    ValueType = Float
+    KeyboardType = NumbersAndPunctuation
+    TextSettings.HorzAlign = Trailing
+    Position.X = 137.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    Left = 231
+    Top = 35
+  end
+  object EditCustomer: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    ReadOnly = True
+    Position.X = 26.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 255.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Customer'
+    Left = 8
+    Top = 35
+  end
+end

@@ -11,6 +11,7 @@ object VCLMainFrm: TVCLMainFrm
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu
+  OnActivate = FormActivate
   OnClose = FormClose
   TextHeight = 13
   object ClientPanel: TPanel

@@ -50,8 +50,13 @@ type
 
   IOrdersView = interface(IView)
     ['{90EF5DC4-05E2-4950-A767-157ED506A9A6}']
-    //procedure DisplayOrder(const AOrder: TOrder);
     procedure DisplayOrders(const ACustomer: TCustomer = nil);
+  end;
+
+  IOrderView = interface(IView)
+    ['{F5C14C01-E9C7-45D1-A25D-E9406DEBCFF0}']
+    procedure DisplayOrder(const AOrder: TOrder;
+      const ACustomer: TCustomer = nil);
   end;
 
   IApplyFilter = interface
@@ -68,6 +73,9 @@ type
     function CreateOrdersView(const AModel: TModel;
       const AController: TAppController;
       const AContainer: IContainerView = nil): IOrdersView;
+    function CreateOrderView(const AModel: TModel;
+      const AController: TAppController;
+      const AOrder: TOrder; const ACustomer: TCustomer = nil): IOrderView;
     procedure ApplyFilter(const AView: IView; const AFilter: IApplyFilter);
     function YesNo(const AQuestion: string): Boolean;
     procedure RefreshCurrentView;
@@ -84,6 +92,7 @@ type
     function AppTitle: string;
     procedure StartApp(viewHandler: IViewHandler; Model: TModel);
     procedure AddOrder(Order: TOrder);
+    procedure SaveOrder(const Order: TOrder);
     procedure DeleteOrder(const AId: Integer);
     function RetrieveOrder(const AId: Integer;
       const ARaiseError: Boolean = False): TOrder;
@@ -94,6 +103,8 @@ type
     function CreateCustomersView(const AContainer: IContainerView = nil): ICustomersView;
     function CreateOrdersView(const AContainer: IContainerView = nil;
       const ACustomer: TCustomer = nil): IOrdersView;
+    function CreateOrderView(const AOrder: TOrder;
+      const ACustomer: TCustomer = nil): IOrderView;
   end;
 
 implementation
@@ -117,6 +128,20 @@ function TAppController.CreateOrdersView(
 begin
   Result := FViewHandler.CreateOrdersView(FModel, Self, AContainer);
   Result.DisplayOrders(ACustomer);
+end;
+
+function TAppController.CreateOrderView(const AOrder: TOrder;
+  const ACustomer: TCustomer): IOrderView;
+begin
+  FViewHandler.CreateOrderView(FModel, Self, AOrder, ACustomer);
+end;
+
+procedure TAppController.SaveOrder(const Order: TOrder);
+begin
+  var LOrder := RetrieveOrder(Order.Id);
+  if Assigned(LOrder) then
+    LOrder.Assign(Order);
+  FViewHandler.RefreshCurrentView;
 end;
 
 procedure TAppController.StartApp(viewHandler: IViewHandler; Model: TModel);

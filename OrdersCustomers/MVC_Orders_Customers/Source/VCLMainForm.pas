@@ -37,6 +37,7 @@ type
     procedure OrdersMenuItemClick(Sender: TObject);
     procedure CustomersMenuItemClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormActivate(Sender: TObject);
   strict private
     FController: TAppController;
     FModel: TModel;
@@ -100,6 +101,11 @@ begin
   LForm.BorderStyle := bsNone;
   LForm.Show;
   CurrentView := AView;
+end;
+
+procedure TVCLMainFrm.FormActivate(Sender: TObject);
+begin
+  RefreshView;
 end;
 
 procedure TVCLMainFrm.FormClose(Sender: TObject; var Action: TCloseAction);
